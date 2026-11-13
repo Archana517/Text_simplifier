@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Simplifier - Convert Difficult Text into Easy English</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo-container">
+        <span class="logo-icon">&#10024;</span>
+        <h1>Text Simplifier</h1>
+      </div>
+      <p class="subtitle">Convert complex, difficult text into clear and simple English.</p>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Input Card -->
+      <section class="card input-card">
+        <label for="inputText" class="section-label">Enter Difficult Text</label>
+        <textarea
+          id="inputText"
+          rows="7"
+          placeholder="Type or paste your difficult or formal text here... (e.g., 'In order to facilitate the project, we must utilize adequate resources prior to commencing the endeavor.')"
+        ></textarea>
+
+        <div class="text-info">
+          <span id="charCount">0 characters</span>
+          <span id="wordCount">0 words</span>
+        </div>
+
+        <div id="errorMessage" class="error-message" role="alert" aria-live="polite"></div>
+
+        <div class="button-group">
+          <button id="simplifyBtn" class="btn btn-primary" type="button">
+            <span class="btn-icon">&#9881;</span> Simplify Text
+          </button>
+          <button id="clearBtn" class="btn btn-secondary" type="button">
+            <span class="btn-icon">&#10006;</span> Clear
+          </button>
+        </div>
+      </section>
+
+      <!-- Results Section (hidden until user simplifies text) -->
+      <section id="resultsSection" class="results-section hidden">
+        <!-- Separate Display for Original and Simplified Text -->
+        <div class="comparison-grid">
+          <!-- Original Text Box -->
+          <div class="card result-card">
+            <div class="result-header">
+              <h2>Original Text</h2>
+            </div>
+            <div id="originalTextDisplay" class="text-display original-display"></div>
+          </div>
+
+          <!-- Simplified Text Box -->
+          <div class="card result-card">
+            <div class="result-header">
+              <h2>Simplified Text</h2>
+              <button id="copyBtn" class="btn btn-copy" type="button" title="Copy simplified text">
+                <span id="copyIcon" class="btn-icon">&#128203;</span>
+                <span id="copyText">Copy Result</span>
+              </button>
+            </div>
+            <div id="simplifiedTextDisplay" class="text-display simplified-display"></div>
+          </div>
+        </div>
+
+        <!-- Difficult Words Section -->
+        <div class="card words-card">
+          <div class="result-header">
+            <h2>Difficult Words Explained</h2>
+            <span id="difficultWordsCount" class="badge">0 words</span>
+          </div>
+          <p class="section-description">
+            Here are the complex words identified from your text, along with their simpler meanings:
+          </p>
+          <div id="wordsList" class="words-list">
+            <!-- Words dynamically inserted by JavaScript -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>Text Simplifier &copy; 2026 &bull; Clear and simple English for everyone.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
